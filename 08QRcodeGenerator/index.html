@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>QR Code Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>QR Code Generator</p>
+        <input type="text" placeholder="Text or URL" id="qrText">
+        <div id="imgBox">
+            <img src="" id="qrImg">
+        </div>
+        <p id="errorMsg">Please enter a Text.</p>
+        <button onclick="generateQR()">Generate QR Code</button>
+    </div>
+
+    <script>
+        let container = document.getElementsByClassName( "container" )[ 0 ];
+        let qrText = document.getElementById('qrText');
+        let qrImg = document.getElementById('qrImg');
+        let imgBox = document.getElementById('imgBox');
+        let errorMsg = document.getElementById("errorMsg");
+
+        function generateQR() {
+            if (qrText.value === '') {
+                imgBox.style.display = 'none';
+                errorMsg.style.display = 'block';
+                qrText.classList.add('error');
+                setTimeout(()=>{
+                    qrText.classList.remove('error');
+                } ,1000)
+            } else {
+                imgBox.style.display = 'block';
+                errorMsg.style.display = 'none';
+                qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+                imgBox.classList.add('show-img');
+            }
+
+            // qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+            // imgBox.classList.add('show-img');
+
+        }
+    </script>
+</body>
+
+</html>

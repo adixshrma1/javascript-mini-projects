@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+}
+body{
+    height: 100vh;
+    background: #5BBCFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quote-box{
+    width: 700px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.quote-box h1{
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.quote-box h1::after{
+    content: "";
+    width: 200px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.quote-box blockquote{
+    font-size: 26px;
+    min-height: 110px;
+}
+.quote-box blockquote::before, .quote-box blockquote::after{
+    content: '"';
+}
+.quote-box #first{
+    text-align: right;
+}
+.quote-box span{
+    padding: 0 10px
+}
+.quote-box span::before{
+    content: '- ';
+}
+#second{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+#second button{
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 5px;
+    background-color: rgb(23,124,229);
+    border: 2px solid rgb(23,124,229);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#second button:nth-child(2){
+    background-color: white;
+    color: black;
+}
+#second img{
+    width: 25px;
+    margin-right: 5px;
+}

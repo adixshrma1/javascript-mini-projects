@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/20bbf36abb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="./media/thumbnail.jpg" class="thumbnail">
+            <h1>Tum Hi Ho</h1>
+            <p>Arijit Singh</p>
+            <audio id="song">
+                <source src="./media/Tum-Hi-Ho.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+            <div class="controls">
+                <i class="fa-solid fa-backward-step"></i>
+                <i onclick="playPause()" class="fa-solid fa-play" id="control-icon"></i>
+                <i class="fa-solid fa-forward-step"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let controlIcon = document.getElementById("control-icon");
+
+        song.onloadedmetadata = function(){
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+        }
+
+        function playPause(){
+            if(controlIcon.classList.contains("fa-play")){
+                song.play();
+                controlIcon.classList.remove("fa-play");
+                controlIcon.classList.add("fa-pause");
+            }else{
+                song.pause();
+                controlIcon.classList.remove("fa-pause");
+                controlIcon.classList.add("fa-play");
+            }
+        }
+
+        if(song.play()){
+            setInterval(()=>{
+                progress.value = song.currentTime;
+            }, 500)
+        }
+
+        progress.onchange = function(){
+            song.currentTime = progress.value;
+            song.play();
+                controlIcon.classList.remove("fa-play");
+                controlIcon.classList.add("fa-pause");
+        }  
+
+    </script>
+</body>
+</html>
