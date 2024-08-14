@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="stopwatch">
+        <h1 id="displayTimer">00:00:00</h1>
+        <div class="buttons">
+            <img src="./images/stop.png" onclick="watchStop()">
+            <img src="./images/start.png" onclick="watchStart()">
+            <img src="./images/reset.png" onclick="watchReset()">
+        </div>
+    </div>
+
+    <script>
+        let [hours, minutes, seconds] = [0, 0, 0];
+        let displayTimer = document.getElementById("displayTimer");
+        let timer = null;
+
+        function stopWatch(){
+            seconds++;
+            if(seconds == 60){
+                seconds = 0;
+                minutes++;
+                if(minutes == 60){
+                    minutes=0;
+                    hours++;
+                }
+            }
+            hours = hours.toString().padStart(2, '0');
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');   
+            displayTimer.innerHTML = `${hours}:${minutes}:${seconds}`;
+        }
+
+        function watchStart(){
+            if(timer!==null){
+                clearInterval(timer);
+            }
+            timer = setInterval(stopWatch, 1000);
+        }
+        function watchStop(){
+            clearInterval(timer);
+        }
+        function watchReset(){
+            clearInterval(timer);
+            [hours, minutes, seconds] = [0, 0, 0];
+            displayTimer.innerHTML = "00:00:00";
+        }
+
+    </script>
+</body>
+</html>

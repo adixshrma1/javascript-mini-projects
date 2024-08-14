@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+body{
+    background-color: #074173;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+/* related to icon on top */
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.icon{
+    padding: 10px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0px 3px 5px rgba(0,0,0, 0.3 );
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+.icon i{
+    font-size: 35px;
+    color: #074173;
+}
+.input-grp{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+.input-grp label{
+    flex-basis: 28%;
+    font-size: 20px;
+}
+.input-grp input{
+    flex-basis: 68%;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid grey;
+    font-size: 16px;
+    width: 60%;
+    max-width: 270px;
+}
+::placeholder{
+    font-size: 14px;
+}
+textarea{
+    flex-basis: 68%;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid grey;
+    width: 60%;
+    max-width: 270px;
+    resize: none;
+    font-size: 16px;
+}
+form button{
+    padding: 10px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #1E0342;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.input-grp span, #submit-err{
+    color: red;
+    font-size: 14px;
+}
+.input-grp span{
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+}
+.input-grp span i{
+    color: green;
+}
